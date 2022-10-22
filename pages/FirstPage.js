@@ -1,11 +1,12 @@
 //This is an example code for Navigator// 
 import React, { Component } from 'react';
 //import react in our code. 
-import { StyleSheet, View, Button, Text, Pressable} from 'react-native';
+import { StyleSheet, View, Button, Text, Pressable, Image} from 'react-native';
 //import all the components we are going to use.
 import { TouchableHighlight } from 'react-native-web'; 
-
-import Home from '../pageComponents/home';
+import { useState } from 'react';
+import retro from '../images/retro2.png';
+import Home from '../pageComponents/Home.js';
 
 export default class FirstPage extends Component {
   static navigationOptions = {
@@ -27,10 +28,34 @@ export default class FirstPage extends Component {
  
   render() {
     const { navigate } = this.props.navigation;
+
+    const data = 0;
+
     return (
         
     
-      <Home></Home>
+      <View style={styles.container}>
+    
+
+    <Text style={styles.header}>Stockify</Text>
+
+      
+
+    <Pressable style={styles.button}
+      onPress={() => navigate('SecondPage')}
+          
+      ><Text style={styles.buttonText}>Create New Portfolio</Text></Pressable>
+
+
+
+
+        <Pressable style={styles.button}
+      onPress={() => navigate('ThirdPage')}
+          
+      ><Text style={styles.buttonText}>My Portfolio</Text></Pressable>
+      {/* <Image source={retro}></Image> */}
+      <Text style={styles.bottomText}>Created by Logan, Tomer, Rithvik, Mateo</Text>
+    </View>
       
     
     );
@@ -48,6 +73,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     marginBottom: 20,
+    fontWeight: '700',
+    paddingTop: 100,
   },
   button: {
     alignItems: 'center',
@@ -59,6 +86,15 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: '#d90f8e',
+  },
+  bottomText: {
+    color: 'white',
+    paddingTop: 200,
+  },
+  buttonText: {
+      fontSize: 20,
+      textAlign: 'center',
+      color: 'white',
   },
   text1: {
     fontSize: 15,
