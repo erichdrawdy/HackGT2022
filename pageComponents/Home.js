@@ -5,11 +5,6 @@ import { StyleSheet, View, Button, Pressable} from 'react-native';
 const Home = () => {
   const name = "Maru";
 
-    function stockAPI () {
-
-
-    }
-
   return (
     <View style={styles.container}>
     <Text>Hello, I am {name}!</Text>
