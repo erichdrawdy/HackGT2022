@@ -8,6 +8,18 @@ export default class SecondPage extends Component {
   static navigationOptions = {
     title: 'Second Page',
     //Sets Header text of Status Bar
+    headerStyle: {
+      backgroundColor: '#1c0b24',
+      //Sets Header color
+    },
+    headerTintColor: '#fff',
+    //Sets Header text color
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: 'white'
+      //align: 'center',
+      //Sets Header text style
+    },
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -21,9 +33,9 @@ export default class SecondPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    margin:20,
+    backgroundColor: '#1c0b24',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 0,
   },
 });

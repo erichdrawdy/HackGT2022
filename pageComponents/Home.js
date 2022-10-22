@@ -2,36 +2,15 @@ import React from 'react';
 import { Text } from 'react-native';
 import { StyleSheet, View, Button, Pressable} from 'react-native';
 
-const Home = () => {
-  const name = "Maru";
+import {withNavigation} from "react-navigation";
 
-    function stockAPI () {
+const Home = ({navigate}) => {
+  
 
 
-    }
 
   return (
-    <View style={styles.container}>
-    <Text>Hello, I am {name}!</Text>
-
-    <Text style={styles.header}>Test</Text>
-
-      
-
-    <Button title='Go to second page'
-      onPress={() =>navigate('SecondPage')}
-          
-      > </Button>
-
-
-
-
-        <Button style={styles.button} title='Go to thirds page'
-      onPress={() =>navigate('ThirdPage')}
-          
-      > Third Page</Button>
-
-</View>
+    Hello
   );
 
   
@@ -50,6 +29,7 @@ const styles = StyleSheet.create({
       fontSize: 30,
       color: 'white',
       marginBottom: 20,
+      fontWeight: 800,
     },
     button: {
       alignItems: 'center',
@@ -62,8 +42,13 @@ const styles = StyleSheet.create({
       elevation: 3,
       backgroundColor: '#d90f8e',
     },
+    buttonText: {
+        fontSize: 20,
+        textAlign: 'center',
+    },
     text1: {
       fontSize: 15,
     },
   });
+
 export default Home;
