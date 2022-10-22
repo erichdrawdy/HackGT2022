@@ -2,13 +2,16 @@
 import React, { Component } from 'react';
 //import react in our code. 
 import { StyleSheet, View, Text, Pressable} from 'react-native';
-
 //import all the components we are going to use.
+ import LoadingBar from 'react-top-loading-bar';
  
-export default class SecondPage extends Component {
+ import { useState } from 'react';
+import DiversityBar from '../pageComponents/DiversityBar';
+export default class FourthPage extends Component {
+
+
   static navigationOptions = {
-    title: 'Second Page',
-    //Sets Header text of Status Bar
+    title: 'Fourth Page',
     headerStyle: {
       backgroundColor: '#1c0b24',
       //Sets Header color
@@ -21,14 +24,23 @@ export default class SecondPage extends Component {
       //align: 'center',
       //Sets Header text style
     },
+    
   };
   render() {
     const { navigate } = this.props.navigation;
+
+    //const [progress, setProgress] = useState(0)
+
+
+
     return (
       <View style={styles.container}>
-        <Text>You are on SecondPage</Text>
-        <Pressable style={styles.button}
-      onPress={() => navigate('FourthPage')}><Text style={styles.buttonText}>Next</Text></Pressable>
+        <DiversityBar></DiversityBar>
+
+        <Text>You are on FourthPage</Text>
+        <Pressable style={styles.button}><Text style={styles.buttonText}>Big Tech</Text></Pressable>
+        <Pressable style={styles.button}><Text style={styles.buttonText}>Energy</Text></Pressable>
+        <Pressable style={styles.button}><Text style={styles.buttonText}>Utilities</Text></Pressable>
       </View>
     );
   }
@@ -41,10 +53,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 0,
   },
-
+  
   button: {
     alignItems: 'center',
-    width: 200,
+    width: 300,
     justifyContent: 'center',
     paddingVertical: 12,
     marginTop: 15,

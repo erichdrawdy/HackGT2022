@@ -29,7 +29,7 @@ export default class FirstPage extends Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    const data = 0;
+    
 
     return (
         
@@ -40,7 +40,7 @@ export default class FirstPage extends Component {
     <Text style={styles.header}>Stockify</Text>
 
       
-
+      <Home></Home>
     <Pressable style={styles.button}
       onPress={() => navigate('SecondPage')}
           

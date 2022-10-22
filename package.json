@@ -21,7 +21,8 @@
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
     "react-native-web": "~0.18.7",
-    "react-navigation-stack": "^2.10.4"
+    "react-navigation-stack": "^2.10.4",
+    "react-top-loading-bar": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

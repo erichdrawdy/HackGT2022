@@ -4,26 +4,22 @@ import { StyleSheet, View, Button, Pressable} from 'react-native';
 import { useState } from 'react';
 import {withNavigation} from "react-navigation";
 
-const Home = () => {
+import LoadingBar from 'react-top-loading-bar';
+
+const DiversityBar = () => {
   
 
-    const [data, setData] = useState(null);
+  const [progress, setProgress] = useState(0)
 
-    function stockAPI() {
-
-      fetch('https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2021-07-22/2022-07-22?adjusted=true&sort=asc&limit=120&apiKey=HSMNRUITPGqoXqgpUlgWjaTNpP28ItWQ')
-        .then((response) => response.json())
-        .then((data) => setData(data));
-  
-  
-      
-  
-    }
 
   return (
     <>
-    <Text>hello</Text>
-    <Button onPress={stockAPI} title="Hello"></Button>
+    
+    <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
     </>
   );
 
@@ -65,4 +61,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default Home;
+export default DiversityBar;
