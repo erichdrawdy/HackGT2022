@@ -4,6 +4,7 @@ import { StyleSheet, View, Button, Pressable} from 'react-native';
 import { useState, useEffect } from 'react';
 import {withNavigation} from "react-navigation";
 import * as Progress from 'react-native-progress';
+import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
 
 const Result = () => {
@@ -20,21 +21,51 @@ const Result = () => {
     const array = global.myVar
     array.map(element => stockAPI(element))
 
-    console.log("here")
-    console.log(close)
+    // here baby 
+    
+
   }
 
   const [data, setData] = useState(null);
 
-  const [close, setClose] = useState([])
+  const [close, setClose] = useState("")
 
-  function adjust(data) {
+  const arr = []
 
-    setClose(prev => [...prev, data])
-    
-    
+  function addToArray(array) {
+    arr.push(array)
+
+
   }
 
+  const [save, setSave] = useState()
+
+  // function adjust(data) {
+
+  //   const temp = JSON.stringify(data);
+    
+  //   console.log(temp)
+
+
+  // }
+
+  function display() {
+    console.log(arr)
+    console.log(JSON.stringify(arr))
+    //setSave(JSON.stringify(arr))
+    fetch('http://127.0.0.1:5000/compute', {
+      method: 'Post',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(arr)
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data)); 
+    
+
+  }
     function stockAPI(element) {
 
         
@@ -42,14 +73,25 @@ const Result = () => {
         
       fetch('https://api.polygon.io/v2/aggs/ticker/' + element + '/range/1/day/2021-07-22/2022-07-22?adjusted=true&sort=asc&limit=366&apiKey=HSMNRUITPGqoXqgpUlgWjaTNpP28ItWQ')
         .then((response) => response.json())
-        .then((data) => adjust(data.results));      
+        .then((data) => {
+          var arr = []
+          arr.push(element)
+          var i = 0;
+          while (i < data.results.length) {
+            arr.push(data.results[i].c)
+            i++;
+          }
+          addToArray(arr)
+        });      
   
+        
         
     }
   
   return (
     <>
     <Text style={styles.header}>results from the array</Text>
+    <Button onPress={display}>Display shit</Button>
     </>
   );
 
