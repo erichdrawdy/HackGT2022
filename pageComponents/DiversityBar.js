@@ -1,26 +1,40 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { StyleSheet, View, Button, Pressable} from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {withNavigation} from "react-navigation";
+import * as Progress from 'react-native-progress';
 
-import LoadingBar from 'react-top-loading-bar';
 
-const DiversityBar = () => {
+const DiversityBar = (progress) => {
   
+  const [color, setColor] = useState("rgba(212, 2, 119, 1)")
+  //rgb(212,2,119)
 
-  const [progress, setProgress] = useState(0)
 
+  useEffect(() => {
+    changeColor();
+  }, [progress]);
+  
+  function changeColor() {
+    const prog = progress.progress
+//rgb(234,166,33)s
 
+    if (prog > 0.5) {
+      setColor("rgba(234, 166, 33, 1)") 
+    }
+    //rgb(140,232,83)
+
+    if (prog > 0.75) {
+      setColor("rgba(140, 232, 83, 1)")
+    }
+  }
+  
   return (
-    <>
-    
-    <LoadingBar
-        color='#f11946'
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
-    </>
+    <View style={styles.container}>
+    <Text style={styles.header}>Diversity Bar</Text>
+    <Progress.Bar progress={progress.progress} color={color} width={300} />
+    </View>
   );
 
   
@@ -30,16 +44,16 @@ const DiversityBar = () => {
 const styles = StyleSheet.create({
   
     container: {
-      flex: 1,
-      backgroundColor: '#1c0b24',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'absolute',
+      top: 20,
     },
     header: {
-      fontSize: 30,
+      fontSize: 20,
       color: 'white',
       marginBottom: 20,
-      fontWeight: 800,
+      // fontWeight: 800,
     },
     button: {
       alignItems: 'center',

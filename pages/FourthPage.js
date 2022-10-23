@@ -6,12 +6,13 @@ import { StyleSheet, View, Text, Pressable} from 'react-native';
  import LoadingBar from 'react-top-loading-bar';
  
  import { useState } from 'react';
+ import Selection from '../pageComponents/Selection';
 import DiversityBar from '../pageComponents/DiversityBar';
 export default class FourthPage extends Component {
 
 
   static navigationOptions = {
-    title: 'Fourth Page',
+    title: 'Company Selection',
     headerStyle: {
       backgroundColor: '#1c0b24',
       //Sets Header color
@@ -28,19 +29,17 @@ export default class FourthPage extends Component {
   };
   render() {
     const { navigate } = this.props.navigation;
+    
 
     //const [progress, setProgress] = useState(0)
+    
+    
 
 
 
     return (
       <View style={styles.container}>
-        <DiversityBar></DiversityBar>
-
-        <Text>You are on FourthPage</Text>
-        <Pressable style={styles.button}><Text style={styles.buttonText}>Big Tech</Text></Pressable>
-        <Pressable style={styles.button}><Text style={styles.buttonText}>Energy</Text></Pressable>
-        <Pressable style={styles.button}><Text style={styles.buttonText}>Utilities</Text></Pressable>
+        <Selection navigation={navigate}></Selection>
       </View>
     );
   }

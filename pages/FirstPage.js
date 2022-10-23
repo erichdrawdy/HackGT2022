@@ -40,7 +40,7 @@ export default class FirstPage extends Component {
     <Text style={styles.header}>Stockify</Text>
 
       
-      <Home></Home>
+      {/* <Home></Home> */}
     <Pressable style={styles.button}
       onPress={() => navigate('SecondPage')}
           
