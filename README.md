@@ -1,7 +1,8 @@
 # HackGT 2022 Project
 
-By: Tomer Shmul, Erich Logan Drawdy, Mateo Mendoza, Rithvik Ram 
-Stack: React Native, Flask, Python
+**By**: Tomer Shmul, Erich Logan Drawdy, Mateo Mendoza, Rithvik Ram
+
+**Stack**: React Native, Flask, Python
 
 
 ## Inspiration
