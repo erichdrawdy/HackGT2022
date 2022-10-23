@@ -20,22 +20,19 @@ const Result = () => {
     const array = global.myVar
     array.map(element => stockAPI(element))
 
-    
+    console.log("here")
+    console.log(close)
   }
 
   const [data, setData] = useState(null);
 
-  const [close, setClose] = useState(null)
+  const [close, setClose] = useState([])
 
   function adjust(data) {
-    if (close == null) {
-        setClose(data)
-    } else {
-        const obj1 = close.concat(data)
-        setClose(obj1)
-    }
-    
 
+    setClose(prev => [...prev, data])
+    
+    
   }
 
     function stockAPI(element) {
@@ -45,7 +42,7 @@ const Result = () => {
         
       fetch('https://api.polygon.io/v2/aggs/ticker/' + element + '/range/1/day/2021-07-22/2022-07-22?adjusted=true&sort=asc&limit=366&apiKey=HSMNRUITPGqoXqgpUlgWjaTNpP28ItWQ')
         .then((response) => response.json())
-        .then((data) => console.log(data.results));      
+        .then((data) => adjust(data.results));      
   
         
     }

@@ -63,7 +63,7 @@ const Selection = ({navigation}) => {
         {(select == 1) ? <>
         
             <Pressable style={styles.button} onPress={() => add("MSFT")}><Text style={styles.buttonText}>Microsoft</Text></Pressable>
-            <Pressable style={styles.button} onPress={() => add("APPL")}><Text style={styles.buttonText}>Apple</Text></Pressable>
+            <Pressable style={styles.button} onPress={() => add("AAPL")}><Text style={styles.buttonText}>Apple</Text></Pressable>
             <Pressable style={styles.button} onPress={() => add("GOOG")}><Text style={styles.buttonText}>Alphabet</Text></Pressable>
             <Pressable style={styles.button} onPress={() => add("META")}><Text style={styles.buttonText}>Meta</Text></Pressable>
             <Pressable style={styles.button} onPress={() => add("SNAP")}><Text style={styles.buttonText}>Snapchat</Text></Pressable>
