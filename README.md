@@ -4,6 +4,7 @@
 
 **Stack**: React Native, Flask, Python
 
+**DevPost**: https://devpost.com/software/stockify-i9n674
 
 ## Inspiration
 Our inspiration for this project arose from our shared passion for computer science and finance. We saw how our peers often have the tools to get into investing in stocks, but were often **faced with the obstacle of how to invest their funds**. We wanted to create a platform that alleviates this burden, making education and participation in the stock market more equitable and widespread. 
